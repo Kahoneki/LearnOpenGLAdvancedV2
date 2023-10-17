@@ -80,4 +80,12 @@
       <Filter>Source Files\Shaders\Object</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource Files\marble.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource Files\metal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
