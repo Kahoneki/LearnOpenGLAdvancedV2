@@ -159,6 +159,11 @@
     <None Include="Source Files\Shaders\Light Source\vert.glsl" />
     <None Include="Source Files\Shaders\Object\frag.glsl" />
     <None Include="Source Files\Shaders\Object\vert.glsl" />
+    <None Include="Source Files\Shaders\Stencil\frag.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource Files\marble.jpg" />
+    <Image Include="Resource Files\metal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

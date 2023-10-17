@@ -25,6 +25,9 @@
     <Filter Include="Source Files\External">
       <UniqueIdentifier>{8e4604f0-ef1e-4ea7-b7f5-d4ead7ebb2f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shaders\Stencil">
+      <UniqueIdentifier>{791b8585-f5ea-4d50-8230-ae65378ffaf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Header Files\camera.cpp">
@@ -79,5 +82,16 @@
     <None Include="Source Files\Shaders\Object\vert.glsl">
       <Filter>Source Files\Shaders\Object</Filter>
     </None>
+    <None Include="Source Files\Shaders\Stencil\frag.glsl">
+      <Filter>Source Files\Shaders\Stencil</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource Files\marble.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource Files\metal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
