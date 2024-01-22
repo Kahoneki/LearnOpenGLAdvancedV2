@@ -160,6 +160,12 @@
     <None Include="Source Files\Shaders\Object\frag.glsl" />
     <None Include="Source Files\Shaders\Object\vert.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource Files\grass.png" />
+    <Image Include="Resource Files\marble.jpg" />
+    <Image Include="Resource Files\metal.png" />
+    <Image Include="Resource Files\window.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
