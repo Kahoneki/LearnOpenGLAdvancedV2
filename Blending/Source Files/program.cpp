@@ -77,6 +77,9 @@ int main()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     // build and compile shaders
     // -------------------------
     Shader shader("./Source Files/Shaders/Object/vert.glsl", "./Source Files/Shaders/Object/frag.glsl");
@@ -185,20 +188,20 @@ int main()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glBindVertexArray(0);
 
-    // transparent vegetation locations
+    // transparent window locations
     // --------------------------------
-    std::vector<glm::vec3> vegetation;
-    vegetation.push_back(glm::vec3(-1.5f, 0.0f, -0.48f));
-    vegetation.push_back(glm::vec3(1.5f, 0.0f, 0.51f));
-    vegetation.push_back(glm::vec3(0.0f, 0.0f, 0.7f));
-    vegetation.push_back(glm::vec3(-0.3f, 0.0f, -2.3f));
-    vegetation.push_back(glm::vec3(0.5f, 0.0f, -0.6f));
+    std::vector<glm::vec3> windows;
+    windows.push_back(glm::vec3(-1.5f, 0.0f, -0.48f));
+    windows.push_back(glm::vec3(1.5f, 0.0f, 0.51f));
+    windows.push_back(glm::vec3(0.0f, 0.0f, 0.7f));
+    windows.push_back(glm::vec3(-0.3f, 0.0f, -2.3f));
+    windows.push_back(glm::vec3(0.5f, 0.0f, -0.6f));
     
     // load textures
     // -------------
     unsigned int cubeTexture = loadTexture("./Resource Files/marble.jpg");
     unsigned int floorTexture = loadTexture("./Resource Files/metal.png");
-    unsigned int vegetationTexture = loadTexture("./Resource Files/grass.png");
+    unsigned int windowTexture = loadTexture("./Resource Files/window.png");
 
     // shader configuration
     // --------------------
@@ -247,13 +250,13 @@ int main()
         shader.setMat4("model", glm::mat4(1.0f));
         glDrawArrays(GL_TRIANGLES, 0, 6);
         glBindVertexArray(0);
-        // grass
+        // windows
         glBindVertexArray(transparentVAO);
-        glBindTexture(GL_TEXTURE_2D, vegetationTexture);
-        for (unsigned int i = 0; i < vegetation.size(); i++)
+        glBindTexture(GL_TEXTURE_2D, windowTexture);
+        for (unsigned int i = 0; i < windows.size(); i++)
         {
             model = glm::mat4(1.0f);
-            model = glm::translate(model, vegetation[i]);
+            model = glm::translate(model, windows[i]);
             shader.setMat4("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 6);
         }
