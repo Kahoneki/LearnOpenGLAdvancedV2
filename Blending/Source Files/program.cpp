@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
+#include <GLM/gtx/norm.hpp> //For length2
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -258,9 +259,10 @@ int main()
         glBindVertexArray(transparentVAO);
         glBindTexture(GL_TEXTURE_2D, windowTexture);
 
+        //Sort and render windows from back to front to fix rendering issues with depth buffer and semi-transparent images
         std::map<float, glm::vec3> sorted;
         for (unsigned int i = 0; i < windows.size(); i++) {
-            float distance = glm::length(camera.Position - windows[i]);
+            float distance = glm::length2(camera.Position - windows[i]); //length2 since it's faster than length and we only care about the relative distances, not actual distances.
             sorted[distance] = windows[i];
         }
         for (std::map<float, glm::vec3>::reverse_iterator it = sorted.rbegin(); it != sorted.rend(); ++it) {
